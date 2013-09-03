@@ -7,14 +7,6 @@ let loadedSvnBlame = 1
 function SvnBlame()
     let thisFile = expand("%")
 
-    " Check that this file is actually in SVN
-    let filePath = system('dirname ' . thisFile)
-    let filePath = substitute(filePath, "\n", "", "g")
-    if !isdirectory(filePath . '/.svn')
-        echohl WarningMsg | echon thisFile . " is not in SVN, cannot blame this file."
-        return
-    endif
-
     " Check to see if this file has been changed before we opened it
     " of if it has been changed since we opened it
     let fileDiff = system("svn diff " . thisFile)
@@ -32,11 +24,11 @@ function SvnBlame()
     set nowrap
 
     " Blame baby blame
-    let blameSrc = system('svn blame ' . thisFile . ' | sed -r -e "s/( *[0-9]+) +([a-zA-Z0-9]+).*/ \1  \2 /"')
+    let blameSrc = system('svn blame -x -w ' . thisFile . " | awk '{print $1,$2;}'")
     let blameLines = split(blameSrc, "\n")
 
     let blameOutput = ""
-    let blameWidth = 0
+    let blameWidth = 9
     let i = 0
 
     while i < len(blameLines)
