@@ -14,4 +14,4 @@ Bind it to a key in your `.vimrc`
 
 ----
 
-Thanks to Jonty for the base, and Jim Mahood for miscellaneous tips
+Thanks to Jonty for the base, and Jim Mahood for the tips
