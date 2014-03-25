@@ -1,5 +1,7 @@
 # SVN Blamo !
 
+##### v1.1
+
 Adds a left-gutter to the current split, showing the SVN blame history for that file.  The blame split is scroll-bound to the main window, so you can read in sync.
 
 Bind it to a key in your `.vimrc`
