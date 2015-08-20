@@ -17,3 +17,7 @@ Bind it to a key in your `.vimrc`
 ----
 
 Thanks to Jonty for the base, and Jim Mahood for the tips
+
+## License
+
+[MIT](http://mit-license.org/)
